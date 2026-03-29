@@ -6,14 +6,30 @@ A CLI tool that runs multi-party conversations between multiple LLMs, each with 
 
 ## Overview
 
-This project simulates a group conversation between 4 speakers with unique personalities:
+This project simulates a group conversation (in Spanish) between 4 speakers with unique personalities:
 
-- **K'inich** — Dog, eternal optimist, speaks in barks and sounds
-- **Lluvia** — Woman, cosmiatra, sarcastic and witty
-- **Waldo** — Man, philosopher and software architect
-- **Axel** — kid, loves video games and anime, very logical
+- **K'inich** — a dog, eternal optimist, speaks in barks and sounds
+- **Lluvia** — mexican woman, cosmiatra, sarcastic and witty
+- **Waldo** — mexican man, philosopher and software architect
+- **Axel** — mexican kid, loves video games and anime, very logical
 
 The conversation runs for multiple rounds, with each speaker responding to the chat history and optionally requesting a specific person to respond next.
+
+## Speaker Selection Algorithm
+
+The conversation uses the following algorithm to determine who speaks next:
+
+1. **Round start**: The first speaker of each round is determined by:
+   - Round 1: Randomly selected
+   - Subsequent rounds: The person requested in the previous round becomes the starting speaker
+
+2. **Within a round**: After each speaker finishes, they can optionally request a specific person to respond next:
+   - **Human participants** can request any other participant to speak next
+   - **Pet participants** (e.g., K'inich) cannot request replies
+   - If a person is requested and they haven't spoken yet in the current round, they go next
+   - If no one is requested, or if the requested person has already spoken, a random available speaker is selected
+
+This ensures every speaker participates once per round while allowing natural conversation flow through reply requests.
 
 ## Prerequisites
 
