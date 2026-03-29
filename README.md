@@ -1,6 +1,8 @@
-# Multi-LLM Conversation
+# Multi-LLM Chat
 
 A CLI tool that runs multi-party conversations between multiple LLMs, each with distinct speaker personalities.
+
+![Example chat](/assets/example-chat.png)
 
 ## Overview
 
